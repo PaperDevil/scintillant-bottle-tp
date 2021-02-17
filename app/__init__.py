@@ -14,5 +14,6 @@ def create_app():
 
     # Register basic routes
     from app.routes import routes, errors, options
+    from app.routes import scintillant #  Register Scintillant settings
 
     return app

@@ -20,6 +20,7 @@ def enable_cors():
 
 
 @route('/', method='OPTIONS')
+@route('/<path:path>', method = 'OPTIONS')
 def options_handler(path=None):
     """Returns basic application settings to the request client"""
     return

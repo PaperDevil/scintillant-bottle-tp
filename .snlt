@@ -1,0 +1,14 @@
+{
+  "skill_name": "bottle-skill-template",
+  "skill_working_url": "http://localhost:8080",
+  "testsuite": {
+    "path": "",
+    "client_type": "text",
+    "client_app": "testsuite",
+    "global_id": 0,
+    "theme": "ligh"
+  },
+  "scripts": {
+
+  }
+}

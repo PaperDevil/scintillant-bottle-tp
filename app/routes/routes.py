@@ -7,7 +7,7 @@
     If you need to create new routes, you need to create a separate
     module and register it in the __init__.py of this application.
 """
-from bottle import get, post, error
+from bottle import get, post
 from bottle import request, response
 from scintillant.apimodels import SkillRequest
 
