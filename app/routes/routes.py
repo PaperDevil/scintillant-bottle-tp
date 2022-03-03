@@ -14,13 +14,17 @@ from scintillant.apimodels import SkillRequest
 from http import HTTPStatus
 
 from app.skill_manager import States
+from app.drivers.picklecache import PickleDBCache
 
 
 @post('/skill')
 def skill():
-    manager = States(data=SkillRequest.from_dict(request.json))
-    answer = manager.get_response()
-    return answer.serialize_json()
+    data = SkillRequest(**request.json)
+    user_context = PickleDBCache.get_or_create(f'{data.message.user.idx}_context')
+    data.context = user_context
+    answer = States(data=data).get_response()
+    PickleDBCache.update(f'{data.message.user.idx}_context', answer.context)
+    return answer.json()
 
 
 @get('/logs')
